@@ -9,13 +9,13 @@ jobs:
      - setup_remote_docker
      - run:
          name: Build Docker image
-         command: docker image build -t docker_username/circleci-vke:$CIRCLE_SHA1 .
+         command: docker image build -t syamsarosa/circleci-vke:$CIRCLE_SHA1 .
      - run:
          name: Login to Docker CLI
          command: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
      - run:
          name: Push the Docker image to Docker Hub registry
-         command: docker image push docker_username/circleci-vke:$CIRCLE_SHA1
+         command: docker image push syamsarosa/circleci-vke:$CIRCLE_SHA1
 
  deploy:
    docker:
